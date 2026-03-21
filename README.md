@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Interview Prep
+
+An AI-powered interview preparation platform that generates personalized questions and feedback based on your resume.
+
+**Live Demo:** [https://ai-interview-prep-puce-ten.vercel.app](https://ai-interview-prep-puce-ten.vercel.app)
+
+## Features
+
+- Resume analysis with AI-powered insights
+- Dynamic question generation tailored to your role and experience
+- Voice recording with real-time timer
+- Performance tracking and personalized feedback
+- Supports multiple roles: Engineering, Design, Product, Marketing, Data Science, Operations, and more
+
+## Tech Stack
+
+- Next.js 16
+- TypeScript
+- Tailwind CSS v4
+- shadcn/ui components
+- Google Gemini API (gemini-flash-latest)
+- pdfjs-dist for PDF parsing
+- Vercel deployment
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 20.x or higher
+- Yarn package manager
+- Google Gemini API key (free at [aistudio.google.com](https://aistudio.google.com/app/apikey))
+
+### Installation
 ```bash
-npm run dev
-# or
+# Clone the repository
+git clone https://github.com/chloegwonn/ai-interview-prep.git
+cd ai-interview-prep
+
+# Install dependencies
+yarn install
+
+# Create .env.local and add your API key
+NEXT_PUBLIC_GEMINI_API_KEY=your_api_key_here
+
+# Run development server
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How It Works
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Setup** - Select your role, experience level, and upload your resume (PDF)
+2. **Analysis** - AI analyzes your resume and provides strategic insights
+3. **Practice** - Answer AI-generated questions with voice recording
+4. **Feedback** - Receive personalized feedback and improvement tips
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+### Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push your code to GitHub
+2. Import repository in Vercel
+3. Add environment variable: `NEXT_PUBLIC_GEMINI_API_KEY`
+4. Deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Environment Variables
 
-## Deploy on Vercel
+Create a `.env.local` file:
+```env
+NEXT_PUBLIC_GEMINI_API_KEY=your_gemini_api_key
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## API Usage
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Rate limit: 10 requests/minute (client-side)
+- Responses are cached in sessionStorage
+- Gemini API free tier: 15 requests/minute
+
+## License
+
+MIT
+
+## Author
+
+Chloe - [GitHub](https://github.com/chloegwonn)
